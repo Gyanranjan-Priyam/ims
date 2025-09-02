@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 
 // Get CORS origins from environment variables
-const corsOrigins = process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:5173', 'http://localhost:5174'];
+const corsOrigins = process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:5173', 'http://localhost:5174' , 'https://ims-gyanranjanpriyam.netlify.app/'];
 
 console.log('🔧 CORS Configuration:');
 console.log('Allowed Origins:', corsOrigins);
