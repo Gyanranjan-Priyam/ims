@@ -91,18 +91,29 @@ npm install
 ```
 
 Create a `.env` file in the frontend directory:
+
+**For Local Development:**
 ```env
 # Development API URL (local development)
 VITE_API_URL=http://localhost:5000
-
-# Production API URL (uncomment and update for deployment)
-# VITE_API_URL=https://your-backend-domain.com
 
 # Razorpay Configuration
 VITE_RAZORPAY_KEY_ID=rzp_test_RA04Y5v6BCVxAl
 
 # Development settings
 VITE_NODE_ENV=development
+```
+
+**For Production Deployment:**
+```env
+# Production API URL (deployed backend)
+VITE_API_URL=https://ims-z37w.onrender.com
+
+# Razorpay Configuration
+VITE_RAZORPAY_KEY_ID=rzp_test_RA04Y5v6BCVxAl
+
+# Production settings
+VITE_NODE_ENV=production
 ```
 
 ### 4. Database Setup

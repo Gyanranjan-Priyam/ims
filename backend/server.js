@@ -7,14 +7,39 @@ const socketIo = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
+
+// Get CORS origins from environment variables
+const corsOrigins = process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:5173', 'http://localhost:5174'];
+
+console.log('🔧 CORS Configuration:');
+console.log('Allowed Origins:', corsOrigins);
+
+// CORS configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (corsOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log('❌ CORS blocked origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
 const io = socketIo(server, {
   cors: {
-    origin: '*',
-    methods: ['GET', 'POST']
+    origin: corsOrigins,
+    methods: ['GET', 'POST'],
+    credentials: true
   }
 });
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB connection
@@ -40,6 +65,21 @@ app.get('/', (req, res) => {
   res.send('Inventory Management System Backend Running');
 });
 
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    message: 'Backend is running',
+    timestamp: new Date().toISOString(),
+    cors: 'Configured'
+  });
+});
+
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log(`📡 ${req.method} ${req.path} - Origin: ${req.get('Origin') || 'No Origin'}`);
+  next();
+});
 
 // API routes
 app.use('/api/auth', require('./routes/auth'));

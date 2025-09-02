@@ -6,7 +6,7 @@ console.log('================================');
 
 // Frontend Environment Variables
 console.log('📱 Frontend Configuration:');
-console.log('API Base URL:', import.meta.env.VITE_API_URL || 'http://localhost:5000');
+console.log('API Base URL:', import.meta.env.VITE_API_URL || 'https://ims-z37w.onrender.com');
 console.log('Razorpay Key:', import.meta.env.VITE_RAZORPAY_KEY_ID || 'Not set');
 console.log('Environment:', import.meta.env.VITE_NODE_ENV || 'development');
 
