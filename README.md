@@ -43,137 +43,17 @@ A comprehensive Point of Sale (POS) and Inventory Management System built with m
 - **Razorpay** - Payment gateway for online transactions
 - **Multi-payment Support** - Cash, Online, Bank Transfer, Cheque
 
-## 📋 Prerequisites
-
-Before running this project, make sure you have the following installed:
-
-- **Node.js** (v16 or higher)
-- **npm** or **yarn** package manager
-- **MongoDB** (local installation or MongoDB Atlas)
-- **Git** for version control
-
-## 🚀 Installation & Setup
-
-### 1. Clone the Repository
-```bash
-git clone <repository-url>
-cd IMS
-```
-
-### 2. Backend Setup
-```bash
-cd backend
-npm install
-```
-
-Create a `.env` file in the backend directory:
-```env
-# Database Configuration
-MONGODB_URI=mongodb://localhost:27017/smartpos_ims
-# For MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/smartpos_ims
-
-# JWT Configuration
-JWT_SECRET=your_super_secure_jwt_secret_key_here
-
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-
-# Razorpay Configuration (Optional for payment features)
-RAZORPAY_KEY_ID=your_razorpay_key_id
-RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-```
-
-### 3. Frontend Setup
-```bash
-cd ../frontend
-npm install
-```
-
-Create a `.env` file in the frontend directory:
-
-**For Local Development:**
-```env
-# Development API URL (local development)
-VITE_API_URL=http://localhost:5000
-
-# Razorpay Configuration
-VITE_RAZORPAY_KEY_ID=rzp_test_RA04Y5v6BCVxAl
-
-# Development settings
-VITE_NODE_ENV=development
-```
-
-**For Production Deployment:**
-```env
-# Production API URL (deployed backend)
-VITE_API_URL=https://ims-z37w.onrender.com
-
-# Razorpay Configuration
-VITE_RAZORPAY_KEY_ID=rzp_test_RA04Y5v6BCVxAl
-
-# Production settings
-VITE_NODE_ENV=production
-```
-
-### 4. Database Setup
-Make sure MongoDB is running on your system:
-
-**For Local MongoDB:**
-```bash
-mongod
-```
-
-**For MongoDB Atlas:**
-- Create a cluster on [MongoDB Atlas](https://cloud.mongodb.com/)
-- Get your connection string
-- Update the `MONGODB_URI` in your backend `.env` file
-
-## 🏃‍♂️ Running the Application
-
-### Development Mode
-
-1. **Start the Backend Server:**
-```bash
-cd backend
-npm run dev
-```
-Server will run on `http://localhost:5000`
-
-2. **Start the Frontend Development Server:**
-```bash
-cd frontend
-npm run dev
-```
-Frontend will run on `http://localhost:5173`
-
-### Production Mode
-
-1. **Build the Frontend:**
-```bash
-cd frontend
-npm run build
-```
-
-2. **Start the Backend in Production:**
-```bash
-cd backend
-npm start
-```
 
 ## 📱 Default Login Credentials
 
 ### Admin Account
-- **Email:** `admin@smartpos.com`
+- **Email:** `admin@test.com`
 - **Password:** `admin123`
 
-### Manager Account
-- **Email:** `manager@smartpos.com`
-- **Password:** `manager123`
 
 ### Salesperson Account
-- **Email:** `sales@smartpos.com`
-- **Password:** `sales123`
+- **Email:** `salesperson@test.com`
+- **Password:** `salesperson123`
 
 > **⚠️ Important:** Change these default credentials in production!
 
@@ -226,50 +106,6 @@ IMS/
 └── README.md              # Project documentation
 ```
 
-## 🔌 API Endpoints
-
-### Authentication
-- `POST /auth/login` - User login
-- `POST /auth/register` - User registration
-- `GET /auth/me` - Get current user info
-
-### Products & Inventory
-- `GET /products` - Get all products
-- `POST /products` - Create new product
-- `PUT /products/:id` - Update product
-- `DELETE /products/:id` - Delete product
-
-### Sales Management
-- `GET /sales` - Get all sales
-- `POST /sales` - Create new sale
-- `GET /sales/stats` - Get sales statistics
-
-### Payment Processing
-- `GET /payments` - Get all payments
-- `POST /payments` - Process payment
-- `POST /payments/create-order` - Create Razorpay order
-
-### User Management
-- `GET /users` - Get all users (Admin only)
-- `POST /users` - Create new user (Admin only)
-- `PUT /users/:id` - Update user (Admin only)
-
-## 🔧 Configuration
-
-### Environment Variables
-
-**Backend (.env):**
-- `MONGODB_URI` - Database connection string
-- `JWT_SECRET` - JWT signing secret
-- `PORT` - Server port (default: 5000)
-- `RAZORPAY_KEY_ID` - Razorpay public key
-- `RAZORPAY_KEY_SECRET` - Razorpay secret key
-
-**Frontend (.env):**
-- `VITE_API_URL` - Backend API URL
-- `VITE_RAZORPAY_KEY_ID` - Razorpay public key for frontend
-- `VITE_NODE_ENV` - Environment mode
-
 ## 🚀 Deployment
 
 ### Backend Deployment (Railway/Heroku/DigitalOcean)
@@ -298,8 +134,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support and questions:
 - Create an issue on GitHub
-- Email: support@smartpos.com (if applicable)
-- Documentation: Check the `/docs` folder for detailed guides
+- Email:web.gyanranjan@gmail.com (if applicable)
 
 ## 🎯 Roadmap
 
@@ -312,19 +147,6 @@ For support and questions:
 - [ ] Customer loyalty program
 - [ ] Integration with accounting software
 
-## 📊 Screenshots
-
-### Dashboard
-![Dashboard Screenshot](docs/screenshots/dashboard.png)
-
-### POS System
-![POS Screenshot](docs/screenshots/pos.png)
-
-### Inventory Management
-![Inventory Screenshot](docs/screenshots/inventory.png)
-
 ---
 
-**Built with ❤️ by the SmartPOS Team**
-
-For more information, visit our [documentation](docs/) or check out the [API documentation](docs/api.md).
+**Built with ❤️ by Gyanranjan Priyam**
