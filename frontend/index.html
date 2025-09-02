@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3b82f6" />
+    <title>Inventory Management System</title>
+    <script>
+      // Global error handler for Razorpay loading
+      window.razorpayLoadError = false;
+      window.razorpayLoaded = false;
+      
+      function loadRazorpay() {
+        return new Promise((resolve, reject) => {
+          if (window.Razorpay) {
+            window.razorpayLoaded = true;
+            resolve(true);
+            return;
+          }
+          
+          const script = document.createElement('script');
+          script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+          script.async = true;
+          
+          script.onload = () => {
+            console.log('Razorpay SDK loaded successfully');
+            window.razorpayLoaded = true;
+            resolve(true);
+          };
+          
+          script.onerror = () => {
+            console.error('Failed to load Razorpay SDK');
+            window.razorpayLoadError = true;
+            // Try alternative CDN
+            const fallbackScript = document.createElement('script');
+            fallbackScript.src = 'https://cdn.razorpay.com/static/widget/checkout.js';
+            fallbackScript.async = true;
+            
+            fallbackScript.onload = () => {
+              console.log('Razorpay SDK loaded from fallback CDN');
+              window.razorpayLoaded = true;
+              resolve(true);
+            };
+            
+            fallbackScript.onerror = () => {
+              console.error('Failed to load Razorpay SDK from all sources');
+              window.razorpayLoadError = true;
+              reject(new Error('Razorpay SDK failed to load'));
+            };
+            
+            document.head.appendChild(fallbackScript);
+          };
+          
+          document.head.appendChild(script);
+        });
+      }
+      
+      // Load Razorpay when DOM is ready
+      document.addEventListener('DOMContentLoaded', () => {
+        loadRazorpay().catch(console.error);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
