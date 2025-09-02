@@ -2,6 +2,12 @@
 
 A comprehensive Point of Sale (POS) and Inventory Management System built with modern web technologies. This system provides complete business management capabilities including inventory tracking, sales processing, payment management, and real-time notifications.
 
+[![Built with React](https://img.shields.io/badge/React-19.1.1-blue?logo=react)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-green?logo=node.js)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-green?logo=mongodb)](https://mongodb.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript)](https://typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1+-blue?logo=tailwindcss)](https://tailwindcss.com/)
+
 ## 🚀 Features
 
 ### Core Functionality
